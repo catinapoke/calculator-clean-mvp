@@ -14,6 +14,7 @@ namespace Presentation
 
         private void Awake()
         {
+            _restoreInput.Restore();
             _inputField.text = _restoreInput.Get();
         }
 
@@ -25,6 +26,7 @@ namespace Presentation
         private void OnDisable()
         {
             _inputField.onValueChanged.RemoveListener(OnTextChanged);
+            _restoreInput.Save();
         }
 
         private void OnTextChanged(string text)

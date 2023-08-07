@@ -19,12 +19,13 @@ namespace Presentation
 
         private ScrollRect _rect;
         
-        private void Awake()
+        private void Start()
         {
+            _restoreResult.Restore();
             var results = _restoreResult.Get();
             foreach (var item in results)
             {
-                _appender.Append(_requestSolution.Solve(item));
+                _appender.Append(item);
             }
         }
 
@@ -36,6 +37,7 @@ namespace Presentation
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnSolutionRequest);
+            _restoreResult.Save();
         }
 
         private void OnSolutionRequest()

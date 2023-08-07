@@ -13,6 +13,17 @@ public class ResultStorage : IResultStorage
         _items = new List<Result>();
     }
 
+    public void InitIfEmpty(IEnumerable<Result> results)
+    {
+        if (_items.Count == 0)
+        {
+            foreach (var item in results)
+            {
+                _items.Add(item);
+            }
+        }
+    }
+
     public void AddResult(Result item)
     {
         _items.Add(item);

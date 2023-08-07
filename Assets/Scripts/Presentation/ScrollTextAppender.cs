@@ -21,9 +21,9 @@ namespace Presentation
         private void Awake()
         {
             _rect = GetComponent<ScrollRect>();
-
             _scrollTransform = (_rect.transform as RectTransform);
             _containerTransform = _rect.transform.parent as RectTransform;
+            
             _deltaHeight = _textPrefab.rectTransform.rect.height;
         }
 
